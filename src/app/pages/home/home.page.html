@@ -1,0 +1,100 @@
+<!-- <ion-menu side="start" menuId="main-menu" contentId="main-content" type="overlay">
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item routerLink="/home">
+        <ion-label>🏠 Inicio</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-button fill="clear" expand="full" (click)="toggleSubmenu('peliculas')"color="danger">
+          <ion-label>🎬 Películas</ion-label>
+          <ion-icon [name]="submenuPeliculas ? 'chevron-up' : 'chevron-down'" slot="end"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-list *ngIf="submenuPeliculas" class="submenu">
+        <ion-item routerLink="/peliculas">
+          <ion-label>🎥 Todas las Películas</ion-label>
+        </ion-item>
+        <ion-item routerLink="/peliculas-favoritas">
+          <ion-label>❤️ Favoritas</ion-label>
+        </ion-item>
+        <ion-item routerLink="/peliculas-vistas">
+          <ion-label>👀 Vistas</ion-label>
+        </ion-item>
+        <ion-item routerLink="/peliculas-por-ver">
+          <ion-label>📅 Por Ver</ion-label>
+        </ion-item>
+        <ion-item routerLink="/estrenos">
+          <ion-label>🆕 Nuevos Estrenos</ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-item>
+        <ion-button fill="clear" expand="full" (click)="logout()" color="danger">
+          <ion-label>🚪 Cerrar Sesión</ion-label>
+        </ion-button>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-router-outlet id="main-content"></ion-router-outlet> -->
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>🎥 CinéFilo</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button class="logout-button" (click)="logout()">
+        🚪Cerrar sesión
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="main-content" class="ion-padding">
+  <video autoplay muted loop playsinline preload="auto" class="background-video">
+    <source src="assets/videos/14378-256955039_small.mp4" type="video/mp4" />
+    Tu navegador no soporta el video.
+  </video>
+
+  <div class="contenido-superior">
+    <h2 class="ion-text-center">🎬 ¡Bienvenido, {{ username }}!</h2>
+
+    <div class="cards-container">
+      <swiper-container #swiper [config]="slideOpts" class="mySwiper">
+        <swiper-slide *ngFor="let pelicula of peliculasDestacadas">
+          <ion-card>
+            <img [src]="pelicula.imagen" alt="{{ pelicula.titulo }}" />
+            <ion-card-header>
+              <ion-card-title>{{ pelicula.titulo }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              {{ pelicula.descripcion }}
+            </ion-card-content>
+          </ion-card>
+        </swiper-slide>
+        <div class="swiper-pagination"></div>
+      </swiper-container>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="dark" class="footer-toolbar">
+    <ion-grid>
+      <ion-row class="ion-align-items-center ion-justify-content-between">
+        <ion-col size="12" size-md="6" class="ion-text-center ion-text-md-start">
+          <p class="footer-text">© 2025 CinéFilo. Todos los derechos reservados.</p>
+        </ion-col>
+        <ion-col size="12" size-md="6" class="ion-text-center ion-text-md-end"></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

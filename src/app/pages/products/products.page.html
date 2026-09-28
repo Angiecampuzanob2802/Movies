@@ -1,0 +1,84 @@
+<!-- Encabezado de la página -->
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Peliculas 📽️</ion-title>
+        <ion-buttons slot="end">
+        </ion-buttons>
+
+        <ion-buttons slot="end">
+                <ion-button (click)="irAgregarProducto()"> ➕Agregar</ion-button>
+        </ion-buttons>
+        
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!-- Refresher: permite "halar hacia abajo" para refrescar la lista -->
+    <ion-refresher slot="fixed" (ionRefresh)="refrescarArticulos($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <!-- Indicador de carga mientras se están cargando artículos -->
+    <div *ngIf="isLoading" class="ion-text-center ion-padding">
+        <ion-spinner></ion-spinner>
+        <p>Cargando artículos...</p>
+    </div>
+
+    <!-- Mensaje de error si ocurre algún problema al cargar los artículos -->
+    <div *ngIf="errorMessage" class="ion-text-center ion-padding">
+        <ion-text color="danger">{{errorMessage}}</ion-text>
+    </div>
+    
+    <ion-list *ngIf="articulos.length > 0">
+        <ion-item *ngFor="let articulo of articulos" lines="none" class="item-articulo">
+            <!-- Miniatura de la imagen si está disponible -->
+            <ion-thumbnail slot="start" *ngIf="articulo.imagen1">
+                <img [src]="articulo.imagen1" [alt]="articulo.nombre" />
+            </ion-thumbnail>
+
+            <!-- Detalles del artículo -->
+            <ion-label (click)="verDetalleProducto(articulo.id_producto)">
+                <h2 class="titulo">{{ articulo.nombre }}</h2>
+                <p class="descripcion">{{ articulo.descripcion }}</p>
+                <p>
+                    <ion-icon name="pricetag-outline"></ion-icon>
+                    <strong>${{ articulo.precio | number }}</strong>
+                </p>
+                <p>
+                    <ion-icon name="location-outline"></ion-icon>
+                    {{ articulo.ubicacion }}
+                </p>
+            </ion-label>
+
+            <!-- Botones -->
+            <ion-buttons slot="end" class="botones">
+                <ion-button color="warning" fill="outline" size="small"
+                    (click)="editarProducto(articulo.id_producto); $event.stopPropagation()">
+                    ✏️ Editar
+                </ion-button>
+                <ion-button color="danger" fill="outline" size="small"
+                    (click)="eliminarProducto(articulo.id_producto); $event.stopPropagation()">
+                    🗑️ Eliminar
+                </ion-button>
+            </ion-buttons>
+        </ion-item>
+    </ion-list>
+
+    <!-- SCROLL INFINITO -->
+    <!-- Esta parte permite que, al llegar al final de la lista, se carguen más artículos automáticamente -->
+    <ion-infinite-scroll (ionInfinite)="cargarMasArticulos($event)">
+
+        <!-- Muestra un spinner y un texto mientras se cargan más artículos -->
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando más artículos...">
+        </ion-infinite-scroll-content>
+
+    </ion-infinite-scroll>
+
+    <!-- Mensaje si no hay artículos y no se está cargando -->
+    <div *ngIf="articulos.length === 0 && !isLoading" class="ion-text-center ion-padding">
+        <ion-text color="medium">No hay artículos disponibles</ion-text>
+    </div>
+</ion-content>

@@ -1,0 +1,97 @@
+/* Toolbar */
+ion-toolbar {
+  --background: var(--ion-color-dark);
+  --color: var(--ion-color-primary-contrast);
+}
+
+/* Contenido principal */
+ion-content {
+  --background: var(--ion-color-dark);
+  color: var(--ion-color-primary-contrast);
+}
+
+/* Tarjeta de detalles de película */
+.movie-detail-card {
+  background-color: var(--ion-color-dark);
+  padding: 16px;
+  border-radius: 16px;
+  margin: 16px;
+  box-shadow: 0 0 20px var(--ion-color-primary);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 25px #6b4789, 0 0 35px #ca3169;
+  }
+}
+
+/* Lista y items */
+ion-list {
+  background: transparent;
+}
+
+ion-item {
+  --background: transparent;
+  --color: var(--ion-color-primary-contrast);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 0;
+
+  h1 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--ion-color-secondary);
+    text-shadow: 0 0 5px var(--ion-color-secondary);
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+    color: var(--ion-color-primary-contrast);
+  }
+
+  p {
+    font-size: 0.95rem;
+    margin: 0;
+    color: var(--ion-color-primary-contrast);
+  }
+
+  .price {
+    color: var(--ion-color-secondary);
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+
+  .location ion-icon {
+    color: var(--ion-color-tertiary);
+    margin-right: 4px;
+  }
+}
+
+/* Carrusel de imágenes */
+.image-carousel {
+  overflow-x: scroll;
+  white-space: nowrap;
+  padding: 12px;
+  margin: 16px 0;
+
+  .carousel-wrapper {
+    display: flex;
+    gap: 12px;
+  }
+
+  .carousel-image {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid var(--ion-color-secondary);
+    box-shadow: 0 0 12px var(--ion-color-secondary);
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 16px #00ffff, 0 0 22px #00ffff;
+    }
+  }
+}

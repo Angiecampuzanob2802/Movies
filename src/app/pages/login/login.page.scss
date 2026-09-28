@@ -1,0 +1,121 @@
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  object-fit: cover;
+  pointer-events: none; /* Evita que el video reciba eventos del mouse */
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 16px;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(67, 67, 67, 0.753);
+  transition: transform 0.3s ease;
+}
+
+.login-card:hover {
+  transform: scale(1.02);
+}
+
+ion-card-header {
+  text-align: center;
+  color: #1e1e1e;
+}
+
+ion-card-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+ion-card-subtitle {
+  font-size: 1rem;
+  color: #444;
+}
+
+ion-item {
+  --background: rgba(255, 255, 255, 0.501);
+  --border-radius: 12px;
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  --inner-padding-top: 0;
+  --inner-padding-bottom: 0;
+  --inner-padding-start: 0;
+  --inner-padding-end: 0;
+  --color: #1e1e1e;
+  --highlight-color: #502057;
+  --highlight-color-focused: #502057;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+
+  &:hover,
+  &:focus-within {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+  }
+}
+ion-content {
+  --background: transparent; // para que no tape el video
+  position: relative;
+  overflow: hidden;
+}
+
+ion-input {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --highlight-color-focused: #502057;
+  --border-radius: 12px;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 500;
+  color: #1e1e1e;
+  transition: all 0.3s ease;
+
+  &::placeholder {
+    color: #888;
+  }
+}
+ion-button {
+  --background: linear-gradient(135deg, #5e1168, #4b0d4a);
+  --box-shadow: 0 8px 18px rgba(55, 5, 51, 0.4);
+  --border-radius: 50px;
+  --color: #ffffffa1;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 14px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    filter: brightness(1.1);
+    transform: scale(1.03);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}

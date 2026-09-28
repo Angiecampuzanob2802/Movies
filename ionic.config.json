@@ -1,0 +1,7 @@
+{
+  "name": "marketPlace",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

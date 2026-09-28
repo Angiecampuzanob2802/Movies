@@ -1,0 +1,30 @@
+:root {
+  --ion-color-primary: #35d542; /* Neón rojo - terror / acción */
+  --ion-color-primary-rgb: 255, 0, 79;
+  --ion-color-primary-contrast: #f0f6f8;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #f63784;
+  --ion-color-primary-tint: #d23b9dfb;
+
+  --ion-color-secondary: #8373d1; /* Neón azul - cian */
+  --ion-color-secondary-rgb: 0, 240, 255;
+  --ion-color-secondary-contrast: #0b0e21;
+  --ion-color-secondary-contrast-rgb: 0, 0, 0;
+  --ion-color-secondary-shade: #be419a;
+  --ion-color-secondary-tint: #47ff33;
+
+  --ion-color-tertiary: #0f0f13; /* Neón púrpura - misterio */
+  --ion-color-tertiary-rgb: 157, 0, 255;
+  --ion-color-tertiary-contrast: #e8f3f3;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #171718;
+  --ion-color-tertiary-tint: #111111;
+
+  --ion-color-dark: #090909; /* Fondo oscuro general */
+  --ion-color-dark-rgb: 18, 18, 18;
+  --ion-color-dark-contrast: #eff8fa;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+
+  --ion-background-color: #090809; /* Fondo principal */
+  --ion-text-color: #e5ede6;       /* Texto general */
+}

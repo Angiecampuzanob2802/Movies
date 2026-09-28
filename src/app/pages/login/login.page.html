@@ -1,0 +1,39 @@
+<!-- Video de fondo fuera del ion-content -->
+<video autoplay muted loop playsinline class="video-background">
+    <source src="assets/videos/cinema-background.mp4" type="video/mp4">
+</video>
+
+<ion-content [fullscreen]="true">
+    <!-- Barra de carga -->
+    <ion-progress-bar *ngIf="isLoading" type="indeterminate"></ion-progress-bar>
+
+    <!-- Contenedor de login -->
+    <div class="login-container" *ngIf="!isLoading">
+        <ion-card class="login-card">
+            <ion-card-header>
+                <ion-card-title>🎬 CineReview</ion-card-title>
+                <ion-card-subtitle>Tu espacio para compartir opiniones cinéfilas</ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-card-content>
+                <form (ngSubmit)="onLogin()">
+                    <ion-item>
+                        <ion-input label="Nombre de usuario" label-placement="floating" placeholder="Ej: cinéfilo123"
+                            [(ngModel)]="username" name="username">
+                        </ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-input type="password" label="Contraseña" label-placement="floating" placeholder="••••••"
+                            [(ngModel)]="password" name="password">
+                        </ion-input>
+                    </ion-item>
+
+                    <ion-button type="submit" shape="round" expand="full" class="ion-margin-top color-primary">
+                        🎟️ Iniciar Sesión
+                    </ion-button>
+                </form>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

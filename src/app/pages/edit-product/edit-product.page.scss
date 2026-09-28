@@ -1,0 +1,94 @@
+:host {
+    display: block;
+    background-color: #111;
+    height: 100%;
+    color: #ccc;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ENCABEZADO */
+ion-toolbar {
+    --background: #000;
+    --color: #39ff14;
+    border-bottom: 1px solid #39ff14;
+    box-shadow: 0 0 6px #39ff14;
+}
+
+ion-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-shadow: 0 0 4px #39ff14;
+    text-align: center;
+}
+
+/* CONTENIDO */
+ion-content {
+    --background: #111;
+}
+
+/* ESTILO DE CADA CAMPO */
+ion-item {
+    --background: #1a1a1a;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    box-shadow: 0 0 4px rgba(57, 255, 20, 0.3);
+    padding: 4px 10px;
+}
+
+ion-label {
+    color: #39ff14;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-shadow: none;
+    letter-spacing: 0.5px;
+}
+
+/* CAMPOS DE ENTRADA */
+ion-input,
+ion-textarea {
+    color: #fff;
+    font-size: 0.95rem;
+    --padding-start: 6px;
+}
+
+/* INPUT FILE */
+input[type="file"] {
+    background-color: transparent;
+    color: #ccc;
+    border: 1px dashed #39ff14;
+    border-radius: 6px;
+    padding: 6px;
+    margin-top: 6px;
+    width: 100%;
+    font-size: 0.9rem;
+    box-shadow: none;
+}
+
+/* BOTONES */
+ion-button {
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    margin-top: 12px;
+    font-size: 0.95rem;
+    box-shadow: 0 0 8px rgba(57, 255, 20, 0.4);
+}
+
+/* BOTÓN GUARDAR */
+ion-button[color="primary"] {
+    --background: linear-gradient(135deg, #8e7bcd, #33c3c6);
+    --background-hover: #2fe40f;
+    --background-activated: #2bcc0f;
+    color: #000;
+    box-shadow: 0 0 10px #39ff14;
+}
+
+/* BOTÓN CANCELAR */
+ion-button[color="medium"] {
+    --background: #2ccbcb;
+    --background-hover: #676cb1;
+    --background-activated: #6bcfe1;
+    color: #ccc;
+    box-shadow: none;
+}

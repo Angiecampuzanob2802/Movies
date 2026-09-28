@@ -1,0 +1,62 @@
+<ion-app>
+  <!-- Menú lateral -->
+  <ion-menu contentId="main-content" type="overlay">
+    <ion-header>
+      <ion-toolbar color="tertiary">
+        <ion-title>📚 Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-item button routerLink="/home">
+          <ion-icon name="home-outline" slot="start"></ion-icon>
+          <ion-label>🏠 Inicio</ion-label>
+        </ion-item>
+
+        <!-- Submenú Peliculas -->
+        <ion-accordion-group>
+          <ion-accordion value="peliculas">
+            <ion-item slot="header" color="light">
+              <ion-icon name="hardware-chip-outline" slot="start"></ion-icon>
+              <ion-label> 🎬 Peliculas</ion-label>
+            </ion-item>
+
+            <div class="ion-padding" slot="content">
+              <ion-item button (click)="goToTodasLasPeliculas()">
+                <ion-icon name="list-outline" slot="start"></ion-icon>
+                <ion-label>🎥 Todas las Peliculas </ion-label>
+              </ion-item>
+
+              
+              <ion-item button routerLink="/peliculas/favoritas">
+                <ion-icon name="layers-outline" slot="start"></ion-icon>
+                <ion-label>❤️ Favoritas</ion-label>
+              </ion-item>
+              
+              <ion-item button routerLink="/peliculas/vistas">
+                <ion-icon name="layers-outline" slot="start"></ion-icon>
+                <ion-label>👀 Vistas</ion-label>
+              </ion-item>
+
+              
+              <ion-item button routerLink="/peliculas/por_ver">
+                <ion-icon name="layers-outline" slot="start"></ion-icon>
+                <ion-label>📅 Por Ver</ion-label>
+              </ion-item>
+
+              <ion-item button routerLink="/equipos/Estrenos">
+                <ion-icon name="layers-outline" slot="start"></ion-icon>
+                <ion-label>🆕 Nuevos Estrenos</ion-label>
+              </ion-item>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <!-- Contenido principal -->
+  <div class="ion-page" id="main-content">
+    <ion-router-outlet></ion-router-outlet>
+  </div>
+</ion-app>

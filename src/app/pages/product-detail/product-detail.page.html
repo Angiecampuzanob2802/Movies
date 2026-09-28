@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/products"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles de la Película</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark" class="ion-padding">
+
+  <div *ngIf="isLoading" class="ion-text-center ion-padding">
+    <ion-spinner></ion-spinner>
+    <p>Cargando detalles...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="ion-text-center ion-padding">
+    <ion-text color="danger">{{ errorMessage }}</ion-text>
+  </div>
+
+  <div *ngIf="product && !isLoading" class="movie-detail-card">
+
+    <!-- Carrusel de imágenes -->
+    <div class="image-carousel" *ngIf="product?.imagen1">
+      <div class="carousel-wrapper">
+        <img *ngIf="product.imagen1" [src]="product.imagen1" class="carousel-image" alt="Imagen 1" />
+        <img *ngIf="product.imagen2" [src]="product.imagen2" class="carousel-image" alt="Imagen 2" />
+        <img *ngIf="product.imagen3" [src]="product.imagen3" class="carousel-image" alt="Imagen 3" />
+        <img *ngIf="product.imagen4" [src]="product.imagen4" class="carousel-image" alt="Imagen 4" />
+      </div>
+    </div>
+
+    <!-- Información del producto -->
+    <ion-list lines="none" class="info-card">
+      <ion-item>
+        <ion-label>
+          <h1>{{ product.nombre }}</h1>
+          <p class="price">${{ product.precio | number }}</p>
+          <p class="location">
+            <ion-icon name="location-outline"></ion-icon>
+            {{ product.ubicacion }}
+          </p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label text-wrap>
+          <h2>Descripción</h2>
+          <p>{{ product.descripcion }}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h2>Estado</h2>
+          <p>{{ product.estado }}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h2>Publicado</h2>
+          <p>{{ product.fecha_publi | date }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
